@@ -183,7 +183,7 @@ hw9fs_fill_super(struct super_block *sb, void *data, int silent)
 
 	unlock_new_inode(hw9fs_root_inode);
 	
-	if(!(sb->s_root = d_alloc_root(hw9fs_root_inode))) {
+	if(!(sb->s_root = d_make_root(hw9fs_root_inode))) {
 		iput(hw9fs_root_inode);
 		return -ENOMEM;
 	}
