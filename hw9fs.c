@@ -46,7 +46,7 @@ static struct dentry *
 hw9fs_lookup(struct inode *dir, struct dentry *dentry, struct nameidata *nd) {	
 	struct inode *inode;
 	printk(KERN_INFO "hw9fs_lookup called directory ino %lu, dentry name %s\n", dir->i_ino, dentry->d_name.name);	
-	if(memcmp(dentry->d_name.name,"existing_file",13c)==0) {
+	if(memcmp(dentry->d_name.name,"existing_file",13)==0) {
 		inode = iget_locked(dir->i_sb,18);
 		inode->i_fop = &hw9fs_fops;
 		inode->i_size = 1024;
